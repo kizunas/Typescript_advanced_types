@@ -81,5 +81,12 @@ function useVehicle(vehicle: Vehicle) {
   if (vehicle instanceof Truck) { // classで用いているときにinstanceofを使える(普通に'loadCargo' in Vehicleとしてもよい)
     vehicle.loadCargo(1000);
   }
-
 }
+
+useVehicle(v1);
+useVehicle(v2);
+
+
+
+
+
