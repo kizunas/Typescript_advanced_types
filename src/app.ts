@@ -86,7 +86,32 @@ function useVehicle(vehicle: Vehicle) {
 useVehicle(v1);
 useVehicle(v2);
 
+// Discriminated Unions(判別可能なUnions)
+// unionを使う際にtype gaurdを実装するのを楽にしてくれる。
+// object型を使う時に便利
 
+interface Bird {
+  type: 'bird' // interfaceは値を持てないのでこれは値ではなくliteral型、すなわちbirdという文字列だけを許容する
+  flyingSpeed: number;
+}
 
+interface Hourse {
+  type: 'house'
+  runningSpeed: number;
+}
 
+type Animal = Bird | Hourse;
 
+function moveAnimal(animal: Animal) {
+  let speed;
+  switch (animal.type) {
+    case 'bird':
+      speed = animal.flyingSpeed;
+      break;
+    case 'house':
+      speed = animal.runningSpeed
+  }
+  console.log("移動速度" + speed);  
+}
+
+moveAnimal({ type: 'bird', flyingSpeed: 10})
