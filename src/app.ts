@@ -115,3 +115,23 @@ function moveAnimal(animal: Animal) {
 }
 
 moveAnimal({ type: 'bird', flyingSpeed: 10})
+
+// 型キャスト
+// Typescriptがある特定の型であるということを明確に推論できない場合に使う
+// const userInputElement = document.getElementById("user-input");
+// 型推論でHTMLElementと表示される。Typescriptはhtmlファイルまで見ないのでinputタグがあるかわかっていない。
+// 型キャストのやりかた
+// 型を伝えたいものの前に<>をつけ中に、指定したい型を記述する。
+// これができるのはtsconfig.json内のlibにDOMを追加しているため
+// const userInputElement = <HTMLInputElement>document.getElementById("user-input")!; // エクスクラメーションマークでnull出ないことを伝える。
+
+// もう一つの方法（reactを使っている場合<>は違う役割をもつため使えない）
+// 型を伝えたいものの後ろに asと指定したい型を記述する
+// const userInputElement = document.getElementById("user-input")! as HTMLInputElement;
+
+// エクスクラメーションを使わない場合
+const userInputElement = document.getElementById("user-input")
+
+if (userInputElement) {
+  (userInputElement as HTMLInputElement).value = 'こんにちは'
+}
