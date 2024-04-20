@@ -50,7 +50,16 @@ function add(a: Combinable, b: Combinable) {
 // 上述したfunction overloadのおかげでnumberという型推論が行われている。
 const result = add(1, 5);
 
+const fetchedUserData = {
+  id: 'u1',
+  name: 'user1',
+  // job: {
+  //   title: 'Developer',
+  //   description: 'TypeScript'
+  // }
+}
 
+console.log(fetchedUserData?.job?.title);
 
 // type UnknownEmployee = Employee | Admin;
 
