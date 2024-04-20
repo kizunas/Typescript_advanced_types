@@ -59,7 +59,15 @@ const fetchedUserData = {
   // }
 }
 
-console.log(fetchedUserData?.job?.title);
+console.log(fetchedUserData?.job?.title); // オプショナルチェーン
+
+// NULL合体演算子(??)
+const userInput = '';
+
+// const storedData = userInput || 'DEFAULT' // userInputがnull, undefined, false, 0, 空文字の場合(falsy)、'DEFAULT'が表示される。
+const storedData = userInput ?? 'DEFAULT'; // userInputがnullもしくはundefinedのみ'DEFAULT'が表示される。(NULL合体演算子)
+
+
 
 // type UnknownEmployee = Employee | Admin;
 
