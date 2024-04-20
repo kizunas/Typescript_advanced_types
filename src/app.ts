@@ -135,3 +135,14 @@ const userInputElement = document.getElementById("user-input")
 if (userInputElement) {
   (userInputElement as HTMLInputElement).value = 'こんにちは'
 }
+
+// インデックス型(インデックス型は[]を使って定義する。名前は任意だが型はstringかnumberのみ)
+interface ErrorContainer {
+  [prop: string]: string; // keyの名前はstringであり、valueもstringである必要がある。例として{email: '正しいアドレスではありません。'}のような形
+}
+
+const errorBag: ErrorContainer = {
+  // keyやvalueがstringであれば問題ない。またプロパティがいくつあっても大丈夫
+  email: '正しいメールアドレスではありません',
+  username: 'ユーザー名に記号を含めることはできません',
+};
